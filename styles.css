@@ -12,20 +12,18 @@ body{
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     text-align: center;
-    height: 80vh;
+
   }
 
   h2 {
     font-size: 2rem;
+    padding: 10px;
   }
   
   #input-city {
     margin: 50px;
-    height: 50px;
-    width: 200px;
     border-radius: 15px 0px 15px 0px;
     border-bottom: 5px solid orange;
     font-size: 1.4rem;
@@ -38,12 +36,11 @@ body{
   }
 
   #temp {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin: 20px;
   }
 
   #weather {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 2rem;
     text-transform: capitalize;
   }

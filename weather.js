@@ -44,14 +44,12 @@ function appendData(apiData,cityName) {
     const formattedDate = new Date().toLocaleDateString('en-US', options);
     
     let city = document.getElementById("city-name")
-    let state = document.getElementById("state-name")
     let date = document.getElementById("date")
     let temperature = document.getElementById("temp")
     let weather = document.getElementById("weather")
     let fullTemp = document.getElementById("fulltemp")
     
     city.innerText = `${cityName.value},${apiData.sys.country}`
-    state.innerText = `${apiData.sys.state}`
     temperature.innerText = (apiData.main.temp - 273.15).toFixed(1) + " °C";
     weather.innerText = apiData.weather[0].description;
     date.innerText = formattedDate;
