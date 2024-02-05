@@ -1,7 +1,7 @@
 
 
 let form = document.getElementById('input');
-let cityName = document.getElementById("input-city");
+let inputCityName = document.getElementById("inputbox");
 let APIkey = '14a64bd41a53747e067e994861bda5c6';
 
 
@@ -13,7 +13,7 @@ form.addEventListener('submit', (event) => {
 
 function getCityData() {
 
-    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName.value}&limit=5&appid=${APIkey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${inputCityName.value}&limit=5&appid=${APIkey}`)
     .then((response) =>response.json())
     .then((data) => {
         console.log("City-Data:",data)
@@ -31,14 +31,14 @@ function getCoordinates(apiData) {
     .then((response) => response.json())
     .then((apiData) => {
         console.log("Co-ordinates:",apiData)
-        appendData(apiData,cityName)
+        appendData(apiData,inputCityName)
     })
     .catch((error) => console.log(error))
     
 }
 
 
-function appendData(apiData,cityName) {
+function appendData(apiData,inputCityName) {
     
     const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     const formattedDate = new Date().toLocaleDateString('en-US', options);
@@ -49,7 +49,7 @@ function appendData(apiData,cityName) {
     let weather = document.getElementById("weather")
     let fullTemp = document.getElementById("fulltemp")
     
-    city.innerText = `${cityName.value},${apiData.sys.country}`
+    city.innerText = `${inputCityName.value},${apiData.sys.country}`
     temperature.innerText = (apiData.main.temp - 273.15).toFixed(1) + " °C";
     weather.innerText = apiData.weather[0].description;
     date.innerText = formattedDate;
